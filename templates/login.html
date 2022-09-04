@@ -1,0 +1,37 @@
+<!-- TODO: 5. base.html 템플릿을 만들어 모든 페이지에서 상속받아 보여주세요 -->
+
+{% extends "base.html" %}
+{% block content %}
+
+<body>
+  <div class="container">
+      <!-- TODO: 1. /login로 접근하여 로그인 페이지를 통해 로그인이 되게 해주세요 -->
+      <div class="row mt-5">
+        <div class="col-12 text-center">
+          <h1>로그인</h1>
+          <h4>{%if msg%}{{msg}}{%endif%}</h4>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-12">
+          {{ error }}
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-12">
+          <form method="POST" action=".">
+            {% csrf_token %} {{ form.as_p }}
+            <!-- <div class="form-group">
+              <label for="...">...</label>
+              <input type="..." class="form-control" id="..."
+                placeholder="..." name="..." />
+            </div> -->
+            <button type="submit" class="btn btn-primary">로그인</button>
+          </form>
+        </div>
+      </div>
+  </div>
+</body>
+
+{% endblock %}
+

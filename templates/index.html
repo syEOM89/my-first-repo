@@ -1,0 +1,19 @@
+<!-- TODO: 5. base.html 템플릿을 만들어 모든 페이지에서 상속받아 보여주세요 -->
+
+{% extends "base.html" %}
+{% block content %}
+
+<body>
+  <div class="container">
+      <!-- TODO: 4. /index 페이지에는 로그인 한 유저 이름을 출력해야 합니다. ex) hello, 홍길동 -->
+    <p>Hello, {{ user }}</p>
+    {% if user.is_authenticated %}
+    <p><a href="{% url 'logout' %}">로그아웃</a></p>
+    {% else %}
+    <p><a href="{% url 'register' %}">회원가입</a></p>
+    <p><a href="{% url 'login' %}">로그인</a></p>
+    {% endif %}
+  </div>
+</body>
+
+{% endblock %}
